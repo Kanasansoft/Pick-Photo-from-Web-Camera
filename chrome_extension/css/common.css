@@ -1,0 +1,18 @@
+html {
+	background-color : #000000;
+}
+h1 {
+	text-align : center;
+	margin : 0 auto;
+	color : #cccccc;
+	text-shadow : 0px 0px 5px #ffffff;
+}
+#video {
+	cursor  : pointer;
+	margin  : 0 auto;
+	display : block;
+	-webkit-transform : rotateY(180deg);
+	transform         : rotateY(180deg);
+	-webkit-box-reflect : below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(rgba(255,255,255,0.5)));
+	box-reflect         : below 0px         gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(rgba(255,255,255,0.5)));
+}

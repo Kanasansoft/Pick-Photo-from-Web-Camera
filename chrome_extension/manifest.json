@@ -1,0 +1,15 @@
+{
+	"manifest_version" : 2,
+	"name" : "Pick Photo from Web Camera",
+	"version" : "1.0",
+	"intents" : {
+		"http://webintents.org/pick" : [
+			{
+				"type" : ["image/jpg", "image/jpeg"],
+				"href" : "index.html",
+				"disposition" : "window",
+				"title" : "Pick Photo from Web Camera"
+			}
+		]
+	}
+}

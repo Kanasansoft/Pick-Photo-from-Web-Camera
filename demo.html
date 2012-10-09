@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo - Pick Photo from Web Camera</title>
+<script>
+function initCrossBrowser() {
+
+	window.Intent = window.Intent || window.WebKitIntent;
+	window.navigator.startActivity = window.navigator.startActivity || window.navigator.webkitStartActivity;
+	window.intent = window.intent || window.webkitIntent;
+
+	// Catch stream from the camera using getUserMedia. Syntax is different as per the borwser. for ex. webkitGetUserMedia - Chrome, mozGetUserMedia- Mozilla Firefox.
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||  navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+	window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+}
+
+function intentResponse(data) {
+	var result = document.getElementById("result");
+	// Load the data that was edited into an image.
+	if(data instanceof Blob) {
+		result.src = window.URL.createObjectURL(data)
+	} else {
+		result.src = data;
+	}
+}
+
+function click() {
+	var intent = new Intent("http://webintents.org/pick", "image/*");
+	window.navigator.startActivity(intent, intentResponse);
+}
+
+function initialize() {
+	initCrossBrowser();
+	document.getElementById("button").addEventListener("click", click, false);
+}
+
+window.addEventListener("load", initialize, false);
+</script>
+</head>
+<body>
+<input type="button" id="button" value="click" /><br />
+<img id="result" />
+</body>
+</html>
